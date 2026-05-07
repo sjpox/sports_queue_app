@@ -1,10 +1,10 @@
 import { NavLink, Route, Routes, Navigate } from 'react-router-dom';
-import PlayersPage from './pages/PlayersPage.jsx';
-import CourtsPage from './pages/CourtsPage.jsx';
-import SessionsPage from './pages/SessionsPage.jsx';
-import SessionDetailPage from './pages/SessionDetailPage.jsx';
+import PlayersPage from './pages/PlayersPage';
+import CourtsPage from './pages/CourtsPage';
+import SessionsPage from './pages/SessionsPage';
+import SessionDetailPage from './pages/SessionDetailPage';
 
-const linkClass = ({ isActive }) =>
+const linkClass = ({ isActive }: { isActive: boolean }) =>
   `px-4 py-2 rounded-lg text-sm font-medium transition ${
     isActive ? 'bg-emerald-600 text-white' : 'text-slate-700 hover:bg-slate-200'
   }`;

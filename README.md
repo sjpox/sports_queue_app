@@ -1,8 +1,8 @@
 # sports-queue-app
 
-React + Redux + TailwindCSS frontend for managing pickleball / badminton sessions.
+React + Redux Toolkit + TailwindCSS frontend for managing pickleball / badminton sessions. Written in **TypeScript**.
 
-Backend lives in the sibling repo [`sports_queue_service`](../sports_queue_service).
+Backend lives in the sibling repo `sports_queue_service` (NestJS + Prisma + MySQL).
 
 ## Features
 
@@ -16,14 +16,37 @@ Backend lives in the sibling repo [`sports_queue_service`](../sports_queue_servi
 
 ```bash
 npm install
-npm run dev    # http://localhost:5173 (proxies /api → http://localhost:4000)
+npm run dev          # http://localhost:5173 (proxies /api -> http://localhost:4000)
+npm run typecheck    # tsc --noEmit
+npm run build
 ```
 
 Make sure `sports_queue_service` is running on port 4000.
 
 ## Stack
 
-- Vite + React 18
-- Redux Toolkit (slices per feature; async thunks via `fetch`)
+- Vite + React 18 + TypeScript (strict)
+- Redux Toolkit with typed `useAppDispatch` / `useAppSelector`
 - Tailwind CSS
 - React Router
+
+## Layout
+
+```
+src/
+├── api/client.ts             # typed fetch wrapper
+├── types.ts                  # shared API types
+├── store/index.ts            # Redux store + typed hooks
+├── features/
+│   ├── players/playersSlice.ts
+│   ├── courts/courtsSlice.ts
+│   ├── sessions/sessionsSlice.ts
+│   └── queue/queueSlice.ts
+├── pages/
+│   ├── PlayersPage.tsx
+│   ├── CourtsPage.tsx
+│   ├── SessionsPage.tsx
+│   └── SessionDetailPage.tsx
+├── App.tsx
+└── main.tsx
+```
