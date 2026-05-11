@@ -1,3 +1,17 @@
+export type UserRole = 'admin' | 'organizer';
+
+export interface AuthUser {
+  id: number;
+  email: string;
+  name: string;
+  role: UserRole;
+}
+
+export interface AuthResponse {
+  token: string;
+  user: AuthUser;
+}
+
 export type Sport = 'pickleball' | 'badminton' | 'both';
 export type SessionSport = 'pickleball' | 'badminton';
 export type CourtStatus = 'available' | 'in_use' | 'closed';
